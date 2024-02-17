@@ -1,17 +1,21 @@
 package main
 
 import (
-	"github.com/kutaui/htmx-go/handler"
+	"github.com/a-h/templ"
+	"github.com/kutaui/htmx-go/view/layout"
 	"log"
 	"net/http"
 )
 
 func main() {
-	homeHandler := handler.HomeHandler{}
-	http.HandleFunc("/", homeHandler.ServeHTTP)
+
+	fs := http.FileServer(http.Dir("./static"))
+	http.Handle("/", templ.Handler(layout.Base()))
+
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	log.Println("Server is starting on :8080...")
-	err := http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe("localhost:8080", nil)
 	if err != nil {
 		panic(err)
 	}

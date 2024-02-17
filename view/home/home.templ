@@ -1,6 +1,11 @@
-package home
+package component
+
+import "github.com/kutaui/htmx-go/view/layout"
 
 templ Home() {
-  <h1>Home</h1>
-  <p>Welcome to the home page</p>
+	@layout.Base() {
+		<div class="bg-yellow-500 font-bold">
+			<p>This is home</p>
+		</div>
+	}
 }

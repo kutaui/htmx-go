@@ -1,0 +1,22 @@
+package layout
+
+import "github.com/kutaui/htmx-go/view/component"
+
+templ Base() {
+	<html>
+		<head>
+			<link rel="stylesheet" href="/static/css/style.css"/>
+			<script src="/static/js/htmx.min.js"></script>
+			<title>My App</title>
+		</head>
+		<body class="">
+			<div class="max-w-[1400px] mx-auto ">
+				@component.Header() {
+
+				}
+					{ children... }
+
+			</div>
+		</body>
+	</html>
+}

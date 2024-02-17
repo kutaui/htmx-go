@@ -1,1 +1,8 @@
+node_modules
 .idea
+*.env
+bin/
+*.sum
+*_templ.go
+static
+*.txt
