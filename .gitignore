@@ -6,3 +6,4 @@ bin/
 *_templ.go
 static
 *.txt
+.env
